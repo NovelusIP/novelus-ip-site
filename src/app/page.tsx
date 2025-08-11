@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 /**
  * Novelus IP — Self‑contained landing page (no shadcn/ui)
@@ -55,23 +56,12 @@ const fadeUp = {
 };
 
 const stagger = {
-  animate: {
+  hidden: {},
+  show: {
     transition: {
       staggerChildren: 0.15
     }
   }
-};
-
-const slideIn = {
-  initial: { opacity: 0, x: -50 },
-  animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.8, ease: "easeOut" as const }
-};
-
-const scaleIn = {
-  initial: { opacity: 0, scale: 0.8 },
-  animate: { opacity: 1, scale: 1 },
-  transition: { duration: 0.6, ease: "easeOut" as const }
 };
 
 export default function NovelusIP() {
@@ -149,10 +139,11 @@ function Hero() {
     <section id="top" className="relative py-20 overflow-hidden">
       {/* Background image with gradient overlay */}
       <div className="absolute inset-0">
-                             <img
+                             <Image
                        src="/images/Light Bulb.jpg"
                        alt="Innovation and bright ideas"
-                       className="w-full h-full object-cover scale-x-[-1]"
+                       fill
+                       className="object-cover scale-x-[-1]"
                      />
                   <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 via-white/80 via-white/60 via-white/30 to-transparent" />
       </div>
@@ -323,7 +314,7 @@ function SoftwareLab() {
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
             <h2 className="text-3xl font-bold tracking-tight">Software lab</h2>
-            <p className="mt-3 text-neutral-600 max-w-2xl">When strategy alone isn't enough, we build focused tools to speed analysis and reduce risk. Scoping happens during the initial consultation.</p>
+            <p className="mt-3 text-neutral-600 max-w-2xl">When strategy alone isn&apos;t enough, we build focused tools to speed analysis and reduce risk. Scoping happens during the initial consultation.</p>
           </div>
           <a href="#contact" className="text-[#004AAD] font-medium">Discuss your idea →</a>
         </div>
@@ -339,7 +330,7 @@ function SoftwareLab() {
               className="group overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm"
             >
               <div className="relative">
-                <img src={l.image} alt={l.title} className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                <Image src={l.image} alt={l.title} width={400} height={208} className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-105" />
                 <span className="absolute top-3 left-3 text-xs px-2 py-1 rounded-full bg-white/90 border border-neutral-200">{l.title}</span>
               </div>
               <div className="p-5">
@@ -395,7 +386,7 @@ function Approach() {
               whileHover={{ y: -5 }}
               className="rounded-2xl overflow-hidden border border-neutral-200 bg-white shadow-sm"
             >
-              <img src={s.img} alt={s.title} className="h-48 w-full object-cover" />
+              <Image src={s.img} alt={s.title} width={400} height={192} className="h-48 w-full object-cover" />
               <div className="p-5">
                 <h3 className="font-semibold text-lg">{s.title}</h3>
                 <p className="text-neutral-600 mt-2 text-sm">{s.text}</p>
@@ -421,7 +412,7 @@ function Contact() {
           animate="animate"
         >
           <h2 className="text-3xl font-bold tracking-tight">Get in touch</h2>
-          <p className="mt-3 text-neutral-600">Ready to discuss your IP strategy? Let's talk.</p>
+          <p className="mt-3 text-neutral-600">Ready to discuss your IP strategy? Let&apos;s talk.</p>
         </motion.div>
         <motion.div 
           className="mt-10"
